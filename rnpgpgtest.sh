@@ -18,8 +18,8 @@ cat "$SFILEDIR"/BAV.txt.bz2 > "$TMPDIR"/files/bin.bin;
 bzcat "$SFILEDIR"/BAV.txt.bz2 | tail -n +42 | head -n 140 > "$TMPDIR"/files/short.txt
 RNP="./src/rnp/rnp";
 GPG="gpg";
-# ERRDEST="$TMPDIR"/err.txt;
-ERRDEST=/dev/stderr;
+ERRDEST="$TMPDIR"/err.txt;
+# ERRDEST=/dev/stderr;
 
 echo '# Instructions for GPG to create a test key follow.
 %no-protection
