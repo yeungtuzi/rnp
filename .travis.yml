@@ -26,22 +26,6 @@ matrix:
   include:
     - env: BUILD_MODE=normal
       compiler: clang
-    - env: BUILD_MODE=sanitize
-      compiler: clang
-    - env: BUILD_MODE=sanitize-leaks
-      compiler: clang
-    - env: BUILD_MODE=coverage
-      compiler: gcc
-    - env: BUILD_MODE=style-check
-      addons:
-        apt:
-          sources:
-            - llvm-toolchain-trusty-4.0
-          packages:
-            - clang-format-4.0
-  allow_failures:
-    - env: BUILD_MODE=sanitize-leaks
-    - env: BUILD_MODE=style-check
 
 cache:
   directories:
