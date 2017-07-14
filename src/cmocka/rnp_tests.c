@@ -92,7 +92,8 @@ main(void)
     }
 
     struct CMUnitTest tests[] = {
-      cmocka_unit_test(hash_test_success),
+      cmocka_unit_test(rnp_test_eddsa_mult)};        
+      /*cmocka_unit_test(hash_test_success),
       cmocka_unit_test(cipher_test_success),
       cmocka_unit_test(pkcs1_rsa_test_success),
       cmocka_unit_test(raw_elg_test_success),
@@ -107,7 +108,7 @@ main(void)
       cmocka_unit_test(rnpkeys_generatekey_verifykeyNonexistingHomeDir),
       cmocka_unit_test(rnpkeys_generatekey_verifykeyHomeDirNoPermission),
       cmocka_unit_test(rnpkeys_exportkey_verifyUserId),
-      cmocka_unit_test(rnpkeys_generatekey_testExpertMode)};
+      cmocka_unit_test(rnpkeys_generatekey_testExpertMode)};*/
 
     /* Each test entry will invoke setup_test before running
      * and teardown_test after running. */

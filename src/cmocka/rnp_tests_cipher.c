@@ -223,6 +223,15 @@ pkcs1_rsa_test_success(void **state)
 }
 
 void
+rnp_test_eddsa_mult(void **state)
+{
+  for (int i = 0; i < 10000; i++) {
+    printf("Iteration %d\n", i);
+    rnp_test_eddsa(state);
+  }
+}
+
+void
 rnp_test_eddsa(void **state)
 {
     rnp_test_state_t *      rstate = *state;
@@ -244,6 +253,10 @@ rnp_test_eddsa(void **state)
                                              &pgp_key->key.seckey.pubkey.key.ecc),
                          0);
 
+    int res = pgp_eddsa_verify_hash(r, s, hash, sizeof(hash), &pgp_key->key.seckey.pubkey.key.ecc);
+    if (res != 1) {
+      printf("Hash validation failed");
+    }
     rnp_assert_int_equal(
       rstate,
       pgp_eddsa_verify_hash(r, s, hash, sizeof(hash), &pgp_key->key.seckey.pubkey.key.ecc),

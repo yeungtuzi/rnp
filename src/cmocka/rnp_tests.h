@@ -52,6 +52,8 @@ void rnpkeys_generatekey_verifykeyHomeDirNoPermission(void **state);
 
 void rnp_test_eddsa(void **state);
 
+void rnp_test_eddsa_mult(void **state);
+
 void hash_test_success(void **state);
 
 void cipher_test_success(void **state);
