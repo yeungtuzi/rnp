@@ -80,7 +80,7 @@ void test_load_user_prefs(void **state);
 void ecdh_roundtrip(void **state);
 
 void ecdh_decryptionNegativeCases(void **state);
-
+void pgp_compress_roundtrip(void **state);
 #define rnp_assert_int_equal(state, a, b)           \
     do {                                            \
         int _rnp_a = (a);                           \
