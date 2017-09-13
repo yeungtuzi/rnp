@@ -1149,7 +1149,6 @@ rnp_decrypt_file(rnp_ctx_t *ctx, const char *f, const char *out)
 }
 
 typedef struct pgp_handler_param_t {
-    rnp_ctx_t *ctx;
     char       in[PATH_MAX];
     char       out[PATH_MAX];
 } pgp_handler_param_t;
@@ -1157,7 +1156,7 @@ typedef struct pgp_handler_param_t {
 /* process the pgp stream */
 
 bool
-rnp_handler_dest(pgp_operation_handler_t *handler, pgp_dest_t *dst, const char *filename)
+rnp_handler_dest(pgp_parse_handler_t *handler, pgp_dest_t *dst, const char *filename)
 {
     pgp_handler_param_t *param = handler->param;
 
@@ -1172,12 +1171,12 @@ rnp_handler_dest(pgp_operation_handler_t *handler, pgp_dest_t *dst, const char *
     }
 }
 
-int 
+int
 rnp_process_stream(rnp_ctx_t *ctx, const char *in, const char *out)
 {
     pgp_source_t  src;
     pgp_errcode_t err;
-    pgp_operation_handler_t *handler = NULL;
+    pgp_parse_handler_t *handler = NULL;
     pgp_handler_param_t *param = NULL;
     int result;
 
@@ -1215,7 +1214,6 @@ rnp_process_stream(rnp_ctx_t *ctx, const char *in, const char *out)
 
     handler->passphrase_provider = &ctx->rnp->passphrase_provider;
     handler->dest_provider = rnp_handler_dest;
-    param->ctx = ctx;
     handler->param = param;
 
     err = process_pgp_source(handler, &src);
