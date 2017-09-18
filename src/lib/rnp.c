@@ -1228,7 +1228,7 @@ rnp_process_stream(rnp_ctx_t *ctx, const char *in, const char *out)
     if (err == RNP_SUCCESS) {
         result = RNP_OK;
     } else {
-        (void) fprintf(stderr, "processing failed: error %d", err);
+        (void) fprintf(stderr, "processing failed: error 0x%x\n", err);
         result = RNP_FAIL;
     }
 
@@ -1280,7 +1280,7 @@ rnp_encrypt_stream(rnp_ctx_t *ctx, const char *in, const char *out)
     if (err == RNP_SUCCESS) {
         result = RNP_OK;
     } else {
-        (void) printf("rnp_encrypt_stream: encryption failed with error code %d\n", (int)err);
+        (void) printf("rnp_encrypt_stream: encryption failed with error code 0x%x\n", (int)err);
         result = RNP_FAIL;
     }
 
