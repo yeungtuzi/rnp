@@ -607,7 +607,7 @@ pgp_sprint_key(pgp_io_t *             io,
     char     birthtime[32];
     char     key_usage[8];
 
-    if (key->revoked)
+    if (!key || key->revoked)
         return -1;
 
     now = time(NULL);
